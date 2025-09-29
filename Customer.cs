@@ -9,6 +9,8 @@ namespace ECommerceSystem
         public string LastName { get; set; }
         private string Email { get; set; }
         private string Password { get; set; }
+        public CartSystem Cart { get; set; }
+
 
         // get user details
         public virtual void CreateAccount()
@@ -39,6 +41,11 @@ namespace ECommerceSystem
         {
             string hashedInput = HashPassword(password);
             return this.Email == email && this.Password == hashedInput;
+        }
+
+        public Customer()
+        {
+            Cart = new CartSystem("temp-id"); 
         }
     }
 }
