@@ -6,13 +6,17 @@ namespace ECommerceSystem
 {
     internal class OrderClass
     {
-        private string OrderID { get; set; }
+        public string OrderID { get; set; }
         private string CustomerID { get; set; }
         private List<Product> OrderedProducts { get; set; }
         private Dictionary<int, int> ProductQuantities { get; set; } // ProductID → Quantity
         private decimal TotalAmount { get; set; }
         private string OrderStatus { get; set; }
         private DateTime OrderDate { get; set; }
+
+
+
+
 
         // Konstruktor
         public OrderClass()
@@ -97,6 +101,11 @@ namespace ECommerceSystem
                 Console.WriteLine($"- {product.ProductName} (x{ProductQuantities[product.ProductId]}): {product.Price:C} each");
             }
             Console.WriteLine($"Total Amount: {TotalAmount:C}");
+        }
+
+        public string GetOrderID()
+        {
+            return OrderID;
         }
     }
 }
